@@ -129,15 +129,15 @@ function onSessionButtonClick(sessionName) {
     const sessionData = {
         'Session-1': {
             numberOfShakes: 2,
-            averageTime: '00:30',
-            totalTime: '01:00',
-            labels: ['00:00', '03:47:23'],
+            averageTime: '00:00:30',
+            totalTime: '00:01:00',
+            labels: ['00:00:00', '03:47:23'],
             data: [30, 30]
         },
         'Session-2': {
             numberOfShakes: 3,
-            averageTime: '00:45',
-            totalTime: '02:15',
+            averageTime: '00:00:45',
+            totalTime: '00:02:15',
             labels: ['Shake 1', 'Shake 2', 'Shake 3'],
             data: [45, 45, 45]
         }

@@ -1,11 +1,17 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif; /* Use Times New Roman */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #fcf9dd;
+  background-image: url('noTextStraight.png');
+  background-size: cover;
+  background-position: center;
+}
+
+h1, label, input, button, p {
+  font-family: 'Times New Roman', Times, serif; /* Use Times New Roman */
 }
 
 .page {
@@ -15,8 +21,10 @@ body {
   max-width: 600px;
   padding: 60px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
   position: relative;
+  border-radius: 15px; /* Curved edges */
+  font-family: 'Times New Roman', Times, serif; /* Use Times New Roman */
 }
 
 .page h1 {
@@ -79,7 +87,7 @@ button:hover {
 }
 
 .back-button:hover {
-  background-color: #ad739f;
+  background-color: #cb75b7;
 }
 
 .date-section {
