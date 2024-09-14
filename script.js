@@ -55,9 +55,10 @@ function startTimer() {
     if (!timerInterval) {
         timerInterval = setInterval(() => {
             seconds++;
-            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
             const secs = seconds % 60;
-            document.getElementById('timer').textContent = `${formatTime(minutes)}:${formatTime(secs)}`;
+            document.getElementById('timer').textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(secs)}`;
         }, 1000);
     }
 }
@@ -73,7 +74,7 @@ function stopTimer() {
 // Function to reset the timer
 function resetTimer() {
     seconds = 0;
-    document.getElementById('timer').textContent = '00:00';
+    document.getElementById('timer').textContent = '00:00:00';
     stopTimer();
 }
 
@@ -130,7 +131,7 @@ function onSessionButtonClick(sessionName) {
             numberOfShakes: 2,
             averageTime: '00:30',
             totalTime: '01:00',
-            labels: ['00:00', '3:47:23'],
+            labels: ['00:00', '03:47:23'],
             data: [30, 30]
         },
         'Session-2': {
