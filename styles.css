@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #fcf9dd;
+}
+
+.page {
+  display: none;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 60px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  position: relative;
+}
+
+.page h1 {
+  font-size: 2.5em;
+  color: #d4a5a5; /* Lilac color */
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 1em;
+  color: #555;
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+  margin: 10px 0;
+  padding: 10px;
+  width: calc(100% - 40px);
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #8eb8e2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  display:block;
+  width: calc(100%-40px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: #768ca3;
+}
+
+#timer {
+  font-size: 4em;
+  margin: 20px;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  padding: 10px 20px;
+  background-color: #dfa9d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.back-button:hover {
+  background-color: #cb75b7;
+}
+
+.date-section {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.date-section h2 {
+  margin: 0;
+  padding: 10px 0;
+  color: #333;
+}
+
+.session-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #a1d3ab;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.session-button:hover {
+  background-color: #8fc18c;
+}
+
+.canvas-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.session-details {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+.session-details p {
+  margin: 10px 0;
+}

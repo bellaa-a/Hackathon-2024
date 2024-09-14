@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="page1" class="page" style="display: block;">
+        <h1>Hold Steady</h1>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="signIn()">Log In</button>
+    </div>
+
+    <div id="page2" class="page">
+        <button class="back-button" onclick="goBack()">Back</button>
+        <h1>Welcome</h1>
+        <button onclick="startNewSession()">Start New Session</button>
+        <button onclick="viewOldSessions()">View Old Sessions</button>
+    </div>
+
+    <div id="page3" class="page">
+        <button class="back-button" onclick="goBack()">Back</button>
+        <h1>Old Sessions</h1>
+        <input type="text" id="searchBar" placeholder="Search...">
+        
+        <div class="date-section">
+            <h2>September 13, 2024</h2>
+            <button class="session-button">Session-1</button>
+            <button class="session-button">Session-2</button>
+        </div>
+
+        <div class="date-section">
+            <h2>September 14, 2024</h2>
+            <button class="session-button">Session-3</button>
+            <button class="session-button">Session-4</button>
+        </div>
+    </div>
+
+    <div id="page4" class="page">
+        <button class="back-button" onclick="goBack()">End Session</button>
+        <h1>New Session</h1>
+        <div id="timer">00:00</div>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="stopTimer()">Stop</button>
+        <button onclick="resetTimer()">Reset</button>
+    </div>
+
+    <script src="script.js"></script>
+
+    <div id="sessionDetails" class="page" style="display: none;">
+        <button class="back-button" onclick="goBack()">Back</button>
+        <h1>Session Details</h1>
+        <div class="canvas-container">
+            <canvas id="sessionChart" width="600" height="400"></canvas>
+        </div>
+        <div class="session-details">
+            <p id="numberOfShakes">Number of shake(s): 2</p>
+            <p id="averageTime">Average time of shakes: 00:30</p>
+            <p id="totalTime">Total time of shakes: 01:00</p>
+        </div>
+    </div>
+    
+</body>
+</html>
