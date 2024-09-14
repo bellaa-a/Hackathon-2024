@@ -98,12 +98,32 @@ function showSessionDetails(sessionData) {
     }
 
     const ctx = document.getElementById('sessionChart').getContext('2d');
+
+    // Chart.js plugin to draw a horizontal line
+    const horizontalLinePlugin = {
+        id: 'horizontalLine',
+        beforeDraw: (chart, args, options) => {
+            const { ctx, chartArea } = chart;
+            const { top, bottom } = chartArea;
+            const y = chart.scales.y.getPixelForValue(27); // Y value for the line
+
+            ctx.save();
+            ctx.strokeStyle = 'red'; // Line color
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(chartArea.left, y);
+            ctx.lineTo(chartArea.right, y);
+            ctx.stroke();
+            ctx.restore();
+        }
+    };
+
     sessionChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: sessionData.labels,
             datasets: [{
-                label: 'Random Number',
+                label: 'Shakiness',
                 data: sessionData.data,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -111,6 +131,11 @@ function showSessionDetails(sessionData) {
             }]
         },
         options: {
+            plugins: {
+                horizontalLine: {
+                    // You can add more options here if needed
+                }
+            },
             scales: {
                 x: {
                     beginAtZero: true
@@ -119,7 +144,8 @@ function showSessionDetails(sessionData) {
                     beginAtZero: true
                 }
             }
-        }
+        },
+        plugins: [horizontalLinePlugin] // Add the plugin here
     });
 }
 
@@ -127,21 +153,39 @@ function showSessionDetails(sessionData) {
 async function fetchCSVData() {
     const response = await fetch('data.csv'); // Adjust the path to your CSV file if necessary
     const text = await response.text();
-    const rows = text.split('\n').slice(1); // Skip the header row
+    const rows = text.split('\n').slice(1); // Skip the header row if there's one
 
     const labels = [];
     const data = [];
+    let totalSeconds = 0;
 
     rows.forEach(row => {
         const columns = row.split(',');
         if (columns.length === 2) {
-            labels.push(columns[1].trim());
-            data.push(parseFloat(columns[0].trim()));
+            labels.push(columns[1].trim()); // Time stamps
+            const number = parseFloat(columns[0].trim()); // Random numbers
+            data.push(number);
+
+            // Convert time to seconds and add to total time
+            const [hours, minutes, seconds] = columns[1].trim().split(':').map(Number);
+            totalSeconds += (hours * 3600) + (minutes * 60) + seconds;
         }
     });
 
-    return { labels, data };
+    const numberOfShakes = 8;
+    const averageTimeSeconds = '00:00:30';
+    const averageTime = '00:00:49';
+    const totalTime = '00:01:00';
+
+    return {
+        numberOfShakes,
+        averageTime,
+        totalTime,
+        labels,
+        data
+    };
 }
+
 
 // Function to handle session button clicks
 async function onSessionButtonClick(sessionName) {

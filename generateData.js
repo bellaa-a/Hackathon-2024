@@ -14,7 +14,7 @@ function generateCSV() {
         timeInSeconds += 5;
     }
 
-    const csvContent = 'Random Number,Time\n' + rows.join('\n');
+    const csvContent = 'Shakiness,Time\n' + rows.join('\n');
     fs.writeFileSync('data.csv', csvContent);
 }
 
