@@ -103,7 +103,7 @@ function showSessionDetails(sessionData) {
         data: {
             labels: sessionData.labels,
             datasets: [{
-                label: 'Time (s)',
+                label: 'Random Number',
                 data: sessionData.data,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -123,27 +123,28 @@ function showSessionDetails(sessionData) {
     });
 }
 
-// Function to handle session button clicks
-function onSessionButtonClick(sessionName) {
-    // Example data; replace with actual data
-    const sessionData = {
-        'Session-1': {
-            numberOfShakes: 2,
-            averageTime: '00:00:30',
-            totalTime: '00:01:00',
-            labels: ['00:00:00', '03:47:23'],
-            data: [30, 30]
-        },
-        'Session-2': {
-            numberOfShakes: 3,
-            averageTime: '00:00:45',
-            totalTime: '00:02:15',
-            labels: ['Shake 1', 'Shake 2', 'Shake 3'],
-            data: [45, 45, 45]
-        }
-        // Add more sessions as needed
-    };
+// Function to fetch and parse CSV data
+async function fetchCSVData() {
+    const response = await fetch('data.csv'); // Adjust the path to your CSV file if necessary
+    const text = await response.text();
+    const rows = text.split('\n').slice(1); // Skip the header row
 
-    // Show the session details for the selected session
-    showSessionDetails(sessionData[sessionName]);
+    const labels = [];
+    const data = [];
+
+    rows.forEach(row => {
+        const columns = row.split(',');
+        if (columns.length === 2) {
+            labels.push(columns[1].trim());
+            data.push(parseFloat(columns[0].trim()));
+        }
+    });
+
+    return { labels, data };
+}
+
+// Function to handle session button clicks
+async function onSessionButtonClick(sessionName) {
+    const sessionData = await fetchCSVData();
+    showSessionDetails(sessionData);
 }

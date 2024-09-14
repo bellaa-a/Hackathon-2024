@@ -10,10 +10,6 @@ body {
   background-position: center;
 }
 
-h1, label, input, button, p {
-  font-family: 'Times New Roman', Times, serif; /* Use Times New Roman */
-}
-
 .page {
   display: none;
   text-align: center;
@@ -38,6 +34,10 @@ label {
   margin-top: 10px;
   font-size: 1em;
   color: #555;
+}
+
+h1, label, input, button, p {
+  font-family: 'Times New Roman', Times, serif; /* Use Times New Roman */
 }
 
 input[type="email"], input[type="password"], input[type="text"] {
