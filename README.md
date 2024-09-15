@@ -1,7 +1,13 @@
 # Hackathon-2024
 
-![1](https://github.com/bellaa-a/Hackathon-2024.git/Hackathon-2024/Images/band1.png)
-![2](https://github.com/bellaa-a/Hackathon-2024.git/Hackathon-2024/Images/band2.png)
-![3](https://github.com/bellaa-a/Hackathon-2024.git/Hackathon-2024/Images/band3.png)
-![4](https://github.com/bellaa-a/Hackathon-2024.git/Hackathon-2024/Images/band4.png)
-r
+# Inspiration:
+HoldSteady was inspired by the need to enhance surgical care, boost attention, and reduce the amount of mistakes made on the surgical table. Depending on their field, surgeons have up to four daily surgeries that could last for hours each. Due to this high-stress environment, even the most dedicated surgeons can tire, and even the slightest misstep can cause drastic consequences. These surgeons, however, may be so enraptured with their work that they might not even notice their fatigue. Hospitals try to combat this by using buddy systems to modify work schedules; however, a non-biased approach is critical during surgeries to ensure patient safety. We aim to reduce the number of errors these surgeons make through computer vision. 
+
+# What it does:
+HoldSteady comes with an app and two wristbands that will be used together to reduce errors during the surgery. 
+
+HoldSteady is an app that can track, report, and record how shaky the surgeon's hands are during the surgery. Our technology uses computer vision software and an inertia sensor embedded in the wristband. Computer vision, the primary system, will track the highlighted red box to check if the surgeon's wrists are shaking. Then, it compares this data to the secondary system, which is the inertia sensor, to determine whether the surgeon's hands are shaking. By having two systems, we can ensure that the most accurate report is given to the doctor and nurse. Given the circumstances of a surgery, we do not want to falsely alert the doctor, which can cause unnecessary stress. 
+
+In the HoldSteady system, the doctor wears the main wristband, while the nurse wears the buddy wristband. If the software determines that the surgeon's hands have become too shaky, the buddy wristband will receive a continuous vibration until the surgeon's hands stabilize. Using their own judgment, the nurse can then alert the doctor to rest if necessary. This collaborative setup ensures that the doctor isn’t bothered during the procedure, and is only notified when deemed necessary. In this joint effort, both the surgeon and the nurse are actively involved in maintaining the stability of the surgical procedure. 
+
+HoldSteady offers post-surgery benefits as well. Through the app, Surgeons can access their previous surgeries and track the points at which their hands shook above the threshold during the surgery. A graph of variance versus time will be displayed for each surgery. Variance means the distance between two x,y coordinates of the red metal on the bracelet during every 30 second interval. The higher the variance, the longer distance the doctor’s hand moved during that interval. This means that shakiness can be detected when the variance wobbles significantly at a lower value for a notable amount of time. Each period of time above the threshold will be noted down as a shake, and the total number of shakes will be reported. The average length and total duration of shaking will also be reported. This data can then be used to create more effective work schedules for these surgeons, potentially reducing the risk of errors on the surgery table.
