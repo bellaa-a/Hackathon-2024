@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     showPage('page1');
 });
 
+
+
 // Function to show a specific page
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
@@ -16,8 +18,66 @@ function showPage(pageId) {
 }
 
 // Function to handle sign-in
-function signIn() {
-    showPage('page2');
+async function signIn() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            // Success - proceed to the welcome page
+            showPage('page2');
+        } else {
+            // Error - show an error message
+            alert(result.message); // Shows 'User not found' or 'Incorrect password'
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+function CreateAccount(){
+    showPage('register');
+}
+
+async function register(){
+    var regEmail = document.getElementById("newEmail").value;
+    var regPassword = document.getElementById("newPassword").value;
+    
+    // Send data to the backend
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: regEmail,
+                password: regPassword
+            })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message); // Success message
+        } else {
+            alert(result.message); // Error message (e.g., email already taken)
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+    
 }
 
 // Function to view old sessions
