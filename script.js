@@ -183,7 +183,7 @@ function showSessionDetails(sessionData) {
         data: {
             labels: sessionData.labels,
             datasets: [{
-                label: 'Shakiness',
+                label: 'variance',
                 data: sessionData.data,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -211,7 +211,7 @@ function showSessionDetails(sessionData) {
 
 // Function to fetch and parse CSV data
 async function fetchCSVData() {
-    const response = await fetch('data.csv'); // Adjust the path to your CSV file if necessary
+    const response = await fetch('handShakingData.csv'); // Adjust the path to your CSV file if necessary
     const text = await response.text();
     const rows = text.split('\n').slice(1); // Skip the header row if there's one
 
