@@ -1,7 +1,7 @@
 # Hackathon-2024
 
-![](Hackathon-2024/Images/band1.png)
+![1](Hackathon-2024/Images/band1.png)
 
-![](Hackathon-2024/Images/band2.png)
+![2](Hackathon-2024/Images/band2.png)
 
-![](Hackathon-2024/Images/band3.png)
+![3](Hackathon-2024/Images/band3.png)
