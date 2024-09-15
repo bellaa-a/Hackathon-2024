@@ -1,5 +1,8 @@
 # Hackathon-2024
 
+# Slideshow:
+https://livejohnshopkins-my.sharepoint.com/:p:/g/personal/xlu62_jh_edu/EVbTE4Rm2JVHo9z3Ep0_IVMB_harxxzZJCpOzfb64TzyvA?e=GHPCad 
+
 # Inspiration:
 HoldSteady was inspired by the need to enhance surgical care, boost attention, and reduce the amount of mistakes made on the surgical table. Depending on their field, surgeons have up to four daily surgeries that could last for hours each. Due to this high-stress environment, even the most dedicated surgeons can tire, and even the slightest misstep can cause drastic consequences. These surgeons, however, may be so enraptured with their work that they might not even notice their fatigue. Hospitals try to combat this by using buddy systems to modify work schedules; however, a non-biased approach is critical during surgeries to ensure patient safety. We aim to reduce the number of errors these surgeons make through computer vision. 
 
