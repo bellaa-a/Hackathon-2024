@@ -99,24 +99,6 @@ function showSessionDetails(sessionData) {
 
     const ctx = document.getElementById('sessionChart').getContext('2d');
 
-    // Chart.js plugin to draw a horizontal line
-    const horizontalLinePlugin = {
-        id: 'horizontalLine',
-        beforeDraw: (chart, args, options) => {
-            const { ctx, chartArea } = chart;
-            const { top, bottom } = chartArea;
-            const y = chart.scales.y.getPixelForValue(27); // Y value for the line
-
-            ctx.save();
-            ctx.strokeStyle = 'red'; // Line color
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(chartArea.left, y);
-            ctx.lineTo(chartArea.right, y);
-            ctx.stroke();
-            ctx.restore();
-        }
-    };
 
     sessionChart = new Chart(ctx, {
         type: 'line',
@@ -131,11 +113,7 @@ function showSessionDetails(sessionData) {
             }]
         },
         options: {
-            plugins: {
-                horizontalLine: {
-                    // You can add more options here if needed
-                }
-            },
+
             scales: {
                 x: {
                     beginAtZero: true
@@ -145,7 +123,6 @@ function showSessionDetails(sessionData) {
                 }
             }
         },
-        plugins: [horizontalLinePlugin] // Add the plugin here
     });
 }
 
@@ -172,10 +149,37 @@ async function fetchCSVData(filename) {
         }
     });
 
+    let numberOfShakes = 0;
+    let averageTime = '00:00:00';
+    let totalTime = '00:00:00';
+
+    switch(filename) {
+        case 'stableData.csv':
+            numberOfShakes = 0;
+            averageTime = '00:00:00';
+            totalTime = '00:00:00';
+            break;
+        case 'shakeData.csv':
+            numberOfShakes = 3;
+            averageTime = '00:00:07';
+            totalTime = '00:00:21';
+            break;
+        case 'reachData.csv':
+            numberOfShakes = 1;
+            averageTime = '00:00:04';
+            totalTime = '00:00:04';
+            break;
+        case 'data.csv':
+            numberOfShakes = 0;
+            averageTime = '00:00:00';
+            totalTime = '00:00:00';
+            break;
+        default:
+            return;
+    }
+
     // For simplicity, we'll return hardcoded values for the number of shakes and average times
-    const numberOfShakes = 8;
-    const averageTime = '00:00:49';
-    const totalTime = '00:01:00';
+
 
     return {
         numberOfShakes,
@@ -201,7 +205,7 @@ async function onSessionButtonClick(sessionName) {
         case 'Reach Session':
             filename = 'reachData.csv';
             break;
-        case 'Session-4':
+        case 'Random Data Session':
             filename = 'data.csv';
             break;
         default:
