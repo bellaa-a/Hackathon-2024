@@ -6,4 +6,5 @@ export default defineConfig({
     outDir: '../dist', // Ensure build output goes to the parent directory
     emptyOutDir: true, // Optional: Clean the output directory before each build
   },
+  base: '/Hackathon-2024', // For GitHub Pages
 });
